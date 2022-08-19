@@ -23,5 +23,5 @@ AUDIO_ENABLE = no           # Audio output
 CUSTOM_MATRIX = yes
 
 SRC += matrix.c ibmpc.c
-DEFAULT_FOLDER = converter/ibmpc_usb/promicro
+DEFAULT_FOLDER = converter/ibmpc_usb/teensy
 # EEPROM_DRIVER = i2c

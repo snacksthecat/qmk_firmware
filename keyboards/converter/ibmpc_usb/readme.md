@@ -27,7 +27,7 @@ And VCC and GND, of course. See Resource section for keyboard connector pin assi
 ```
 git clone https://github.com/marfrit/qmk_firmware.git
 cd qmk_firmware
-make converter/ibmpc_usb/promicro:default
+make converter/ibmpc_usb/teensy:default
 ```
 
 ## Resource

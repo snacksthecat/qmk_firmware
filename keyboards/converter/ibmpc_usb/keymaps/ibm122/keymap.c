@@ -18,7 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [0] = LAYOUT(
+    [0] = LAYOUT_ibm122(
                                  KC_F13, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18, KC_F19, KC_F20, KC_F21, KC_F22, KC_F23, KC_F24,
                                  KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_F6,  KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_F11, KC_F12,
 
@@ -28,7 +28,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_APP, KC_PSCR,    KC_LSFT, KC_NUBS, KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,    KC_N,  KC_M,   KC_COMM,KC_DOT, KC_SLSH,              KC_NO,   KC_RSFT,    KC_LEFT, KC_INT2,KC_RGHT,    KC_P1,     KC_P2,  KC_P3,  KC_PENT,
     KC_RGUI,KC_LGUI,    KC_CAPS,           KC_LALT,                          KC_SPC,                               KC_RALT,                      KC_RCTL,             KC_DOWN,            KC_SYSREQ, KC_P0,  KC_PDOT,KC_NO
     ),
-    [1] = LAYOUT(
+    [1] = LAYOUT_ibm122(
                                  KC_F13, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18, KC_F19, KC_F20, KC_F21, KC_F22, KC_F23, KC_F24,
                                  KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_F6,  KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_F11, KC_F12,
 
@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_APP, KC_PSCR,    KC_LSFT, KC_NUBS, KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,    KC_N,  KC_M,   KC_COMM,KC_DOT, KC_SLSH,              KC_NO,   KC_RSFT,    KC_LEFT, KC_INT2,KC_RGHT,    KC_P1,     KC_P2,  KC_P3,  KC_PENT,
     KC_RGUI,KC_LGUI,    KC_CAPS,           KC_LALT,                          KC_SPC,                               KC_RALT,                      KC_RCTL,             KC_DOWN,            KC_SYSREQ, KC_P0,  KC_PDOT,KC_NO
     ),
-    [2] = LAYOUT(
+    [2] = LAYOUT_ibm122(
                                  KC_F13, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18, KC_F19, KC_F20, KC_F21, KC_F22, KC_F23, KC_F24,
                                  KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_F6,  KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_F11, KC_F12,
 
@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_APP, KC_PSCR,    KC_LSFT, KC_NUBS, KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,    KC_N,  KC_M,   KC_COMM,KC_DOT, KC_SLSH,              KC_NO,   KC_RSFT,    KC_LEFT, KC_INT2,KC_RGHT,    KC_P1,     KC_P2,  KC_P3,  KC_PENT,
     KC_RGUI,KC_LGUI,    KC_CAPS,           KC_LALT,                          KC_SPC,                               KC_RALT,                      KC_RCTL,             KC_DOWN,            KC_SYSREQ, KC_P0,  KC_PDOT,KC_NO
     ),
-    [3] = LAYOUT(
+    [3] = LAYOUT_ibm122(
                                  KC_F13, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18, KC_F19, KC_F20, KC_F21, KC_F22, KC_F23, KC_F24,
                                  KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_F6,  KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_F11, KC_F12,
 
@@ -58,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_APP, KC_PSCR,    KC_LSFT, KC_NUBS, KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,    KC_N,  KC_M,   KC_COMM,KC_DOT, KC_SLSH,              KC_NO,   KC_RSFT,    KC_LEFT, KC_INT2,KC_RGHT,    KC_P1,     KC_P2,  KC_P3,  KC_PENT,
     KC_RGUI,KC_LGUI,    KC_CAPS,           KC_LALT,                          KC_SPC,                               KC_RALT,                      KC_RCTL,             KC_DOWN,            KC_SYSREQ, KC_P0,  KC_PDOT,KC_NO
     ),
-    [4] = LAYOUT(
+    [4] = LAYOUT_ibm122(
                                  KC_F13, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18, KC_F19, KC_F20, KC_F21, KC_F22, KC_F23, KC_F24,
                                  KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_F6,  KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_F11, KC_F12,
 
@@ -68,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_APP, KC_PSCR,    KC_LSFT, KC_NUBS, KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,    KC_N,  KC_M,   KC_COMM,KC_DOT, KC_SLSH,              KC_NO,   KC_RSFT,    KC_LEFT, KC_INT2,KC_RGHT,    KC_P1,     KC_P2,  KC_P3,  KC_PENT,
     KC_RGUI,KC_LGUI,    KC_CAPS,           KC_LALT,                          KC_SPC,                               KC_RALT,                      KC_RCTL,             KC_DOWN,            KC_SYSREQ, KC_P0,  KC_PDOT,KC_NO
     ),
-    [5] = LAYOUT(
+    [5] = LAYOUT_ibm122(
                                  KC_F13, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18, KC_F19, KC_F20, KC_F21, KC_F22, KC_F23, KC_F24,
                                  KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_F6,  KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_F11, KC_F12,
 

@@ -35,7 +35,7 @@ void matrix_init_user(void);
               GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   -,     =, STB,BSP,    INS, HOM, PUP,   NLK, SLS, AST, MNS,
               TAB,  Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   [,   ],      STB     DEL, END, PDN,   7,   8,   9,   PLS,
               CLK,   A,   S,   D,   F,   G,   H,   J,   K    L,   ;,   ',   \,     ENT,                     4,   5,   6,   COM,
-              LSF, <,   Z,   X,   C,   V,   B,   N,   M,   ,,   .,   /,            RSF,         UP,         1,   2,   3,   ENT,
+              LSF, <,   Z,   X,   C,   V,   B,   N,   M,   ,,   .,   /,   STB      RSF,         UP,         1,   2,   3,   ENT,
               LCL, LGU, LAT,                     SPC,               RAT, RGU, APP, RCL,    LFT, DN,  RGT,   STB, 0,   STB, DOT
 
 */
@@ -47,8 +47,8 @@ void matrix_init_user(void);
             K1B, K1C, K1D, K1E, K1F, K20, K21, K22, K23, K24, K25, K26, K27, K28, K29,   K2A, K2B, K2C,   K2D, K2E, K2F, K30, \
             K33,  K34, K35, K36, K37, K38, K39, K3A, K3B, K3C, K3D, K3E, K3F,     K40,   K41, K42, K43,   K44, K45, K46, K47, \
             K4A,   K4B, K4C, K4D, K4E, K4F, K50, K51, K52, K53, K54, K55, K56,    K57,                    K59, K5A, K5B, K5C, \
-            K5F, K60, K61, K62, K63, K64, K65, K66, K67, K68, K69, K6A,           K6C,        K58,        K70, K71, K72, K73, \
-            K76, K75,  K77,               K78,                     K79, K74, K5D, K7A,   K6D, K7B, K6F,   K7C, K7D, K7E,      \
+            K5F, K60, K61, K62, K63, K64, K65, K66, K67, K68, K69, K6A,  K6B,     K6C,        K58,        K70, K71, K72, K73, \
+            K76, K75,  K77,               K78,                     K79, K74, K5D, K7A,   K6D, K7B, K6F,   K7C, K7D, K7E, K7F  \
 ) { \
  { XXX, K01, K02, K03, K04, K05, K06, K07,  \
   K08, K09, K0A, K0B, K0C, K0D, K0E, K0F }, \
@@ -63,9 +63,9 @@ void matrix_init_user(void);
  { K50, K51, K52, K53, K54, K55, K56, K57,  \
   K58, K59, K5A, K5B, K5C, K5D, K5E, K5F }, \
  { K60, K61, K62, K63, K64, K65, K66, K67,  \
-  K68, K69, K6A, XXX, K6C, K6D, XXX, K6F }, \
+  K68, K69, K6A, K6B, K6C, K6D, XXX, K6F }, \
  { K70, K71, K72, K73, K74, K75, K76, K77,  \
-  K78, K79, K7A, K7B, K7C, K7D, K7E, XXX } \
+  K78, K79, K7A, K7B, K7C, K7D, K7E, K7F } \
 }
 
 /*

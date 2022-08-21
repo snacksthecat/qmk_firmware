@@ -30,7 +30,7 @@ void matrix_init_user(void);
 
 /*
                    F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24.
-              ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12.             PSC, SLK, RST,   TO,  SHT, BRK, MPL,
+              ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12.             PSC, SLK, RST,   PAU,  SEL, BRK, MPL,
 
               GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   -,     =, STB,BSP,    INS, HOM, PUP,   NLK, SEL, AST, MNS,
               TAB,  Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   [,   ],      STB     DEL, END, PDN,   7,   8,   9,   PLS,
@@ -74,7 +74,7 @@ void matrix_init_user(void);
 
 RST, ESC,     GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   -,     =, STB,BSP,    INS, HOM, PUP,   NLK, SLS, AST, MNS,
 SLK, MPL,     TAB,  Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   [,   ],      STB     DEL, END, PDN,   7,   8,   9,   PLS,
-BRK, INT5,    CLK,   A,   S,   D,   F,   G,   H,   J,   K    L,   ;,   ',   \,     ENT,         UP,         4,   5,   6,   COM,
+BRK, PAU,     CLK,   A,   S,   D,   F,   G,   H,   J,   K    L,   ;,   ',   \,     ENT,         UP,         4,   5,   6,   COM,
 APP, PSC,     LSF, <,   Z,   X,   C,   V,   B,   N,   M,   ,,   .,   /,   STB      RSF,    LFT, SEL, RGT,   1,   2,   3,   ENT,
 RGU, LGU,     LCL,      LAT,                     SPC,           RAT,               RCL,         DN,         STB, 0,   STB, DOT
 

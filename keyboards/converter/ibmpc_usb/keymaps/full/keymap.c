@@ -18,7 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [0] = LAYOUT(
+    [0] = LAYOUT_standard(
                                                       KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  KC_F21,  KC_F22,  KC_F23,  KC_F24,
                            KC_ESC,                    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,           KC_PSCR, KC_SLCK, KC_PAUS,
 
@@ -28,7 +28,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                            KC_LSFT, KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_INT1,          KC_RSFT,          KC_UP,            KC_P1,   KC_P2,   KC_P3,   KC_PENT,
                            KC_LCTL,          KC_LGUI, KC_LALT,                   KC_SPC,                             KC_RALT, KC_RGUI, KC_APP,  KC_RCTL,                   KC_LEFT, KC_DOWN, KC_RGHT, KC_P0,   KC_P0,   KC_PDOT, KC_PENT
     ),
-    [1] = LAYOUT(
+    [1] = LAYOUT_standard(
                                                       KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  KC_F21,  KC_F22,  KC_F23,  KC_F24,
                            KC_ESC,                    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,           KC_PSCR, KC_SLCK, KC_PAUS,
 
@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                            KC_LSFT, KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_INT1,          KC_RSFT,          KC_UP,            KC_P1,   KC_P2,   KC_P3,   KC_PENT,
                            KC_LCTL,          KC_LGUI, KC_LALT,                   KC_SPC,                             KC_RALT, KC_RGUI, KC_APP,  KC_RCTL,                   KC_LEFT, KC_DOWN, KC_RGHT, KC_P0,   KC_P0,   KC_PDOT, KC_PENT
     ),
-    [2] = LAYOUT(
+    [2] = LAYOUT_standard(
                                                       KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  KC_F21,  KC_F22,  KC_F23,  KC_F24,
                            KC_ESC,                    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,           KC_PSCR, KC_SLCK, KC_PAUS,
 
@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                            KC_LSFT, KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_INT1,          KC_RSFT,          KC_UP,            KC_P1,   KC_P2,   KC_P3,   KC_PENT,
                            KC_LCTL,          KC_LGUI, KC_LALT,                   KC_SPC,                             KC_RALT, KC_RGUI, KC_APP,  KC_RCTL,                   KC_LEFT, KC_DOWN, KC_RGHT, KC_P0,   KC_P0,   KC_PDOT, KC_PENT
     ),
-    [3] = LAYOUT(
+    [3] = LAYOUT_standard(
                                                       KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  KC_F21,  KC_F22,  KC_F23,  KC_F24,
                            KC_ESC,                    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,           KC_PSCR, KC_SLCK, KC_PAUS,
 
@@ -58,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                            KC_LSFT, KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_INT1,          KC_RSFT,          KC_UP,            KC_P1,   KC_P2,   KC_P3,   KC_PENT,
                            KC_LCTL,          KC_LGUI, KC_LALT,                   KC_SPC,                             KC_RALT, KC_RGUI, KC_APP,  KC_RCTL,                   KC_LEFT, KC_DOWN, KC_RGHT, KC_P0,   KC_P0,   KC_PDOT, KC_PENT
     ),
-    [4] = LAYOUT(
+    [4] = LAYOUT_standard(
                                                       KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  KC_F21,  KC_F22,  KC_F23,  KC_F24,
                            KC_ESC,                    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,           KC_PSCR, KC_SLCK, KC_PAUS,
 
@@ -68,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                            KC_LSFT, KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_INT1,          KC_RSFT,          KC_UP,            KC_P1,   KC_P2,   KC_P3,   KC_PENT,
                            KC_LCTL,          KC_LGUI, KC_LALT,                   KC_SPC,                             KC_RALT, KC_RGUI, KC_APP,  KC_RCTL,                   KC_LEFT, KC_DOWN, KC_RGHT, KC_P0,   KC_P0,   KC_PDOT, KC_PENT
     ),
-    [5] = LAYOUT(
+    [5] = LAYOUT_standard(
                                                       KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  KC_F21,  KC_F22,  KC_F23,  KC_F24,
                            KC_ESC,                    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,           KC_PSCR, KC_SLCK, KC_PAUS,
 
@@ -79,11 +79,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                            KC_LCTL,          KC_LGUI, KC_LALT,                   KC_SPC,                             KC_RALT, KC_RGUI, KC_APP,  KC_RCTL,                   KC_LEFT, KC_DOWN, KC_RGHT, KC_P0,   KC_P0,   KC_PDOT, KC_PENT
     ),
 };
-
-void keyboard_post_init_user(void) {
-  // Customise these values to desired behaviour
-  debug_enable=true;
-  debug_matrix=true;
-  debug_keyboard=true;
-  //debug_mouse=true;
-}

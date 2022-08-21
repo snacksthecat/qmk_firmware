@@ -30,9 +30,9 @@ void matrix_init_user(void);
 
 /*
                    F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24.
-              ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12.             PSC, SLK, RST,   PAU,  SEL, BRK, MPL,
+              ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12.             PSC, SLK, PAU,   RST, SEL, INT, MPL,
 
-              GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   -,     =, STB,BSP,    INS, HOM, PUP,   NLK, SEL, AST, MNS,
+              GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   -,     =, STB,BSP,    INS, HOM, PUP,   NLK, SLS, AST, MNS,
               TAB,  Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   [,   ],      STB     DEL, END, PDN,   7,   8,   9,   PLS,
               CLK,   A,   S,   D,   F,   G,   H,   J,   K    L,   ;,   ',   \,     ENT,                     4,   5,   6,   COM,
               LSF, <,   Z,   X,   C,   V,   B,   N,   M,   ,,   .,   /,   STB      RSF,         UP,         1,   2,   3,   ENT,
@@ -42,13 +42,13 @@ void matrix_init_user(void);
 
 #define LAYOUT_full(\
                    K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, K0B, K0C, \
-            K1A,   K0D, K0E, K0F, K10, K11, K12, K13, K14, K15, K16, K17, K18,           K5E, K31, K19,   K49, K6E, K48, K32,  \
+            K1A,   K0D, K0E, K0F, K10, K11, K12, K13, K14, K15, K16, K17, K18,           K5E, K31, K49,   K19, K6E, K48, K32, \
 \
             K1B, K1C, K1D, K1E, K1F, K20, K21, K22, K23, K24, K25, K26, K27, K28, K29,   K2A, K2B, K2C,   K2D, K2E, K2F, K30, \
             K33,  K34, K35, K36, K37, K38, K39, K3A, K3B, K3C, K3D, K3E, K3F,     K40,   K41, K42, K43,   K44, K45, K46, K47, \
             K4A,   K4B, K4C, K4D, K4E, K4F, K50, K51, K52, K53, K54, K55, K56,    K57,                    K59, K5A, K5B, K5C, \
             K5F, K60, K61, K62, K63, K64, K65, K66, K67, K68, K69, K6A,  K6B,     K6C,        K58,        K70, K71, K72, K73, \
-            K76, K75, K77,                K78,                     K79, K5D, K74, K7A,   K6D, K7B, K6F,   K7C, K7D, K7E, K7F  \
+            K76, K75,  K77,               K78,                     K79, K5D, K74, K7A,   K6D, K7B, K6F,   K7C, K7D, K7E, K7F  \
 ) { \
  { XXX, K01, K02, K03, K04, K05, K06, K07,  \
   K08, K09, K0A, K0B, K0C, K0D, K0E, K0F }, \
@@ -74,7 +74,7 @@ void matrix_init_user(void);
 
 RST, ESC,     GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   -,     =, STB,BSP,    INS, HOM, PUP,   NLK, SLS, AST, MNS,
 SLK, MPL,     TAB,  Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   [,   ],      STB     DEL, END, PDN,   7,   8,   9,   PLS,
-BRK, PAU,     CLK,   A,   S,   D,   F,   G,   H,   J,   K    L,   ;,   ',   \,     ENT,         UP,         4,   5,   6,   COM,
+INT, PAU,     CLK,   A,   S,   D,   F,   G,   H,   J,   K    L,   ;,   ',   \,     ENT,         UP,         4,   5,   6,   COM,
 APP, PSC,     LSF, <,   Z,   X,   C,   V,   B,   N,   M,   ,,   .,   /,   STB      RSF,    LFT, SEL, RGT,   1,   2,   3,   ENT,
 RGU, LGU,     LCL,      LAT,                     SPC,           RAT,               RCL,         DN,         STB, 0,   STB, DOT
 

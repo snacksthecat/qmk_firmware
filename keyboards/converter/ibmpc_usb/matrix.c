@@ -25,8 +25,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "ibmpc.h"
 #include "matrix.h"
 
-#include <inttypes.h>
-
 #define print_matrix_row(row)  print_bin_reverse8(matrix_get_row(row))
 #define print_matrix_header()  print("\nr/c 01234567\n")
 #define matrix_bitpop(i)       bitpop(matrix[i])
@@ -801,10 +799,6 @@ static int8_t process_cs1(uint8_t code)
  *
  */
 static uint8_t cs2_e0code(uint8_t code) {
-
-    // debug
-    uprintf("%u uint8_t", code);
-
     switch(code) {
         // E0 prefixed codes translation See [a].
         case 0x11: return 0x0F; // right alt

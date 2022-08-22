@@ -86,3 +86,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     IBMPC_RST_PORT &= ~(1<<IBMPC_RST_BIT1);  \
     IBMPC_RST_DDR  |=  (1<<IBMPC_RST_BIT1);  \
 } while (0)
+
+#define G80_2551_SUPPORT

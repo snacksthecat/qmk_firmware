@@ -25,6 +25,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "ibmpc.h"
 #include "matrix.h"
 
+#include <inttypes.h>
+
 #define print_matrix_row(row)  print_bin_reverse8(matrix_get_row(row))
 #define print_matrix_header()  print("\nr/c 01234567\n")
 #define matrix_bitpop(i)       bitpop(matrix[i])
@@ -376,6 +378,9 @@ uint8_t matrix_scan(void)
                     // no code
                     break;
                 }
+
+                // debug
+                printf("%" PRIu16 "\n", code);
 
                 // Keyboard Error/Overrun([3]p.26) or Buffer full
                 // Scan Code Set 1: 0xFF

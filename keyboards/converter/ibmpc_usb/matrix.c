@@ -377,7 +377,8 @@ uint8_t matrix_scan(void)
                     break;
                 }
 
-                debug printf("%u\n", (unsigned int)code);
+                // debug
+                debug print("%u\n", (unsigned int)code);
 
                 // Keyboard Error/Overrun([3]p.26) or Buffer full
                 // Scan Code Set 1: 0xFF

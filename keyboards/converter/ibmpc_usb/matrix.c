@@ -379,9 +379,6 @@ uint8_t matrix_scan(void)
                     break;
                 }
 
-                // debug
-                printf("%" PRIu16 "\n", code);
-
                 // Keyboard Error/Overrun([3]p.26) or Buffer full
                 // Scan Code Set 1: 0xFF
                 // Scan Code Set 2 and 3: 0x00
@@ -804,6 +801,10 @@ static int8_t process_cs1(uint8_t code)
  *
  */
 static uint8_t cs2_e0code(uint8_t code) {
+
+    // debug
+    uprintf("%s string", code);
+
     switch(code) {
         // E0 prefixed codes translation See [a].
         case 0x11: return 0x0F; // right alt

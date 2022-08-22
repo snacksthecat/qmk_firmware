@@ -803,7 +803,7 @@ static int8_t process_cs1(uint8_t code)
 static uint8_t cs2_e0code(uint8_t code) {
 
     // debug
-    uprintf("%s string", code);
+    uprintf("%s uint8_t", code);
 
     switch(code) {
         // E0 prefixed codes translation See [a].

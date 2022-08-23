@@ -426,7 +426,7 @@ inline
 static void matrix_make(uint8_t code)
 {
     // debug
-    printf("Code = %x", code);
+    xprintf("Code = %x", code);
 
     uint8_t newcode=0;
     switch (keyboard_kind) {

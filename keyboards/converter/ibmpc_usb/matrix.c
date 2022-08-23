@@ -425,6 +425,9 @@ matrix_row_t matrix_get_row(uint8_t row)
 inline
 static void matrix_make(uint8_t code)
 {
+    // debug
+    xprintf("Code = %x", code);
+
     uint8_t newcode=0;
     switch (keyboard_kind) {
         case PC_XT:

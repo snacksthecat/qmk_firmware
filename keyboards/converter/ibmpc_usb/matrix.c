@@ -395,8 +395,6 @@ uint8_t matrix_scan(void)
                         if (process_cs1(code) == -1) state = ERROR;
                         break;
                     case PC_AT:
-                        // snacks debug
-                        xprintf("\nCode: %02X", code);
                         if (process_cs2(code) == -1) state = ERROR;
                         break;
                     case PC_TERMINAL:
@@ -434,8 +432,10 @@ static void matrix_make(uint8_t code)
             break;
         case PC_AT:
             // snacks debug
-            xprintf("\nRow: %u", ROW(code));
+            xprintf("\nCode: 0x%02X", code);
+            xprintf(" Row: %u", ROW(code));
             xprintf(" Col: %u", COL(code));
+            xprintf(" Map: 0x%02X", map_cs2[ROW(code)][COL(code)]);
             newcode = map_cs2[ROW(code)][COL(code)];
             break;
         case PC_TERMINAL:

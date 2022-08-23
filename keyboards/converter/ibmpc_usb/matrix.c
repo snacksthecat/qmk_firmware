@@ -395,6 +395,7 @@ uint8_t matrix_scan(void)
                         if (process_cs1(code) == -1) state = ERROR;
                         break;
                     case PC_AT:
+                        xprintf("Code = %x", code);
                         if (process_cs2(code) == -1) state = ERROR;
                         break;
                     case PC_TERMINAL:

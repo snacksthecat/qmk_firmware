@@ -432,9 +432,9 @@ static void matrix_make(uint8_t code)
             break;
         case PC_AT:
             // snacks debug
-            xprintf("\nCode: 0x%02X ... ", code);
+            xprintf("\nCode: 0x%02X", code);
             xprintf(" Row: %u", ROW(code));
-            xprintf(" Col: %u ... ", COL(code));
+            xprintf(" Col: %u", COL(code));
             xprintf(" Map: 0x%02X", map_cs2[ROW(code)][COL(code)]);
             newcode = map_cs2[ROW(code)][COL(code)];
             break;

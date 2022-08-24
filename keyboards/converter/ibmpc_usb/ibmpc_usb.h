@@ -47,7 +47,7 @@ void matrix_init_user(void);
   K38, K39, K3A, K3B, K3C, K3D, K3E, K3F }, \
  { K40, K41, K42, K43, K44, K45, K46, K47,  \
   K48, K49, K4A, K4B, K4C, K4D, K4E, K4F }, \
- { K50, K51, K52, K53, K54, K55, K56, K57,  \
+ { K50, K51, K52, K53, K54, K55, K42, K56, K57,  \
   K58, K59, K5A, K5B, K5C, K5D, K5E, K5F }, \
  { K60, K61, K62, K63, K64, K65, K66, K67,  \
   K68, K69, K6A, K6B, K6C, K6D, K6E, K6F }, \

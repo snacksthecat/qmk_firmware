@@ -67,7 +67,7 @@ K15, K16, K71, K73, K4A, K7D, K7E \
  { K10, K11, K12, K13, K14, K15, K16, XXX,  \
   XXX, XXX, K1A, XXX, XXX, XXX, XXX, K1F }, \
  { K20, K21, K22, K23, K24, K25, K26, K27,  \
-  K28, K29, K2A, K2B, K2C, K2D, K2E, K2F }, \
+  K28, K29, K2A, K2B, XXX, K2D, XXX, XXX }, \
  { XXX, K31, XXX, K33, K34, K35, K36, K37,  \
   K38, K39, K3A, K3B, K3C, K3D, K3E, XXX }, \
  { K40, K41, XXX, XXX, XXX, XXX, K46, K47,  \
@@ -79,6 +79,8 @@ K15, K16, K71, K73, K4A, K7D, K7E \
  { XXX, K71, XXX, K73, XXX, XXX, XXX, XXX,  \
   XXX, XXX, XXX, XXX, XXX, K7D, K7E, XXX } \
 }
+
+
 
 
 

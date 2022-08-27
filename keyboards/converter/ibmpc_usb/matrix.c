@@ -1163,10 +1163,10 @@ static int8_t process_cs3(uint8_t code)
                     matrix_break(0x7F);
                     break;
                 case 0x85:  // Muhenkan
-                    matrix_break(0x0B);
+                    matrix_break(0x68);
                     break;
                 case 0x86:  // Henkan
-                    matrix_break(0x06);
+                    matrix_break(0x78);
                     break;
                 case 0x87:  // Hiragana
                     matrix_break(0x00);

@@ -448,10 +448,10 @@ static void matrix_make(uint8_t code)
         xprintf(" Col: %u", COL(code));
         xprintf(" Map: 0x%02X", map_cs2[ROW(code)][COL(code)]);
 
-        xprintf(" New_Code: 0x%02X", newcode);
+        xprintf("\n[BREAK] New_Code: 0x%02X", newcode);
         xprintf(" New_Row: %u", ROW(newcode));
         xprintf(" New_Col: %u", COL(newcode));
-        xprintf(" New_Map: 0x%02X", map_cs2[ROW(newcode)][COL(newcode)]);
+        xprintf(" New_Map: 0x%02X", (matrix[ROW(newcode)] | (1<<COL(newcode))));
     }
 }
 
@@ -482,10 +482,10 @@ static void matrix_break(uint8_t code)
         xprintf(" Col: %u", COL(code));
         xprintf(" Map: 0x%02X", map_cs2[ROW(code)][COL(code)]);
 
-        xprintf(" New_Code: 0x%02X", newcode);
+        xprintf("\n[BREAK] New_Code: 0x%02X", newcode);
         xprintf(" New_Row: %u", ROW(newcode));
         xprintf(" New_Col: %u", COL(newcode));
-        xprintf(" New_Map: 0x%02X", map_cs2[ROW(newcode)][COL(newcode)]);
+        xprintf(" New_Map: 0x%02X", (matrix[ROW(newcode)] & (1<<COL(newcode))));
     }
 }
 

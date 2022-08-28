@@ -431,11 +431,6 @@ static void matrix_make(uint8_t code)
             newcode = map_cs1[ROW(code)][COL(code)];
             break;
         case PC_AT:
-            // snacks debug
-            xprintf("\n[MAKE] Code: 0x%02X", code);
-            xprintf(" Row: %u", ROW(code));
-            xprintf(" Col: %u", COL(code));
-            xprintf(" Map: 0x%02X", map_cs2[ROW(code)][COL(code)]);
             newcode = map_cs2[ROW(code)][COL(code)];
             break;
         case PC_TERMINAL:
@@ -446,6 +441,17 @@ static void matrix_make(uint8_t code)
     }
     if (!matrix_is_on(ROW(newcode), COL(newcode))) {
         matrix[ROW(newcode)] |= 1<<COL(newcode);
+
+        // snacks debug
+        xprintf("\n[MAKE] Code: 0x%02X", code);
+        xprintf(" Row: %u", ROW(code));
+        xprintf(" Col: %u", COL(code));
+        xprintf(" Map: 0x%02X", map_cs2[ROW(code)][COL(code)]);
+
+        xprintf(" New_Code: 0x%02X", newcode);
+        xprintf(" New_Row: %u", ROW(newcode));
+        xprintf(" New_Col: %u", COL(newcode));
+        xprintf(" New_Map: 0x%02X", map_cs2[ROW(newcode)][COL(newcode)]);
     }
 }
 
@@ -459,11 +465,6 @@ static void matrix_break(uint8_t code)
             newcode = map_cs1[ROW(code)][COL(code)];
             break;
         case PC_AT:
-            // snacks debug
-            xprintf("\n[BREAK] Code: 0x%02X", code);
-            xprintf(" Row: %u", ROW(code));
-            xprintf(" Col: %u", COL(code));
-            xprintf(" Map: 0x%02X", map_cs2[ROW(code)][COL(code)]);
             newcode = map_cs2[ROW(code)][COL(code)];
             break;
         case PC_TERMINAL:
@@ -474,6 +475,17 @@ static void matrix_break(uint8_t code)
     }
     if (matrix_is_on(ROW(newcode), COL(newcode))) {
         matrix[ROW(newcode)] &= ~(1<<COL(newcode));
+
+        // snacks debug
+        xprintf("\n[BREAK] Code: 0x%02X", code);
+        xprintf(" Row: %u", ROW(code));
+        xprintf(" Col: %u", COL(code));
+        xprintf(" Map: 0x%02X", map_cs2[ROW(code)][COL(code)]);
+
+        xprintf(" New_Code: 0x%02X", newcode);
+        xprintf(" New_Row: %u", ROW(newcode));
+        xprintf(" New_Col: %u", COL(newcode));
+        xprintf(" New_Map: 0x%02X", map_cs2[ROW(newcode)][COL(newcode)]);
     }
 }
 
@@ -532,27 +544,27 @@ bool matrix_has_ghost_in_row(uint8_t row)
 void led_set(uint8_t usb_led)
 {
     uint8_t ibmpc_led = 0;
-   if (usb_led &  (1<<USB_LED_SCROLL_LOCK)) {
-       DDRF |= (1<<7);
-       PORTF |= (1<<7);
-   } else {
-       DDRF &= ~(1<<7);
-       PORTF &= ~(1<<7);
-   }
-   if (usb_led &  (1<<USB_LED_NUM_LOCK)) {
-       DDRF |= (1<<6);
-       PORTF |= (1<<6);
-   } else {
-       DDRF &= ~(1<<6);
-       PORTF &= ~(1<<6);
-   }
-   if (usb_led &  (1<<USB_LED_CAPS_LOCK)) {
-       DDRF |= (1<<5);
-       PORTF |= (1<<5);
-   } else {
-       DDRF &= ~(1<<5);
-       PORTF &= ~(1<<5);
-   }
+//    if (usb_led &  (1<<USB_LED_SCROLL_LOCK)) {
+//        DDRF |= (1<<7);
+//        PORTF |= (1<<7);
+//    } else {
+//        DDRF &= ~(1<<7);
+//        PORTF &= ~(1<<7);
+//    }
+//    if (usb_led &  (1<<USB_LED_NUM_LOCK)) {
+//        DDRF |= (1<<6);
+//        PORTF |= (1<<6);
+//    } else {
+//        DDRF &= ~(1<<6);
+//        PORTF &= ~(1<<6);
+//    }
+//    if (usb_led &  (1<<USB_LED_CAPS_LOCK)) {
+//        DDRF |= (1<<5);
+//        PORTF |= (1<<5);
+//    } else {
+//        DDRF &= ~(1<<5);
+//        PORTF &= ~(1<<5);
+//    }
     // Sending before keyboard recognition may be harmful for XT keyboard
     if (keyboard_kind == NONE) return;
 

@@ -443,7 +443,7 @@ static void matrix_make(uint8_t code)
         matrix[ROW(newcode)] |= 1<<COL(newcode);
 
         // snacks debug
-        xprintf("\n[MAKE]  Code:\t0x%02X", code);
+        xprintf("\n[MAKE]  Code: 0x%02X", code);
         xprintf(" Row: %u", ROW(code));
         xprintf(" Col: %u", COL(code));
         xprintf("\tMap: 0x%02X", map_cs2[ROW(code)][COL(code)]);
@@ -477,7 +477,7 @@ static void matrix_break(uint8_t code)
         matrix[ROW(newcode)] &= ~(1<<COL(newcode));
 
         // snacks debug
-        xprintf("\n[BREAK] Code:\t0x%02X", code);
+        xprintf("\n[BREAK] Code: 0x%02X", code);
         xprintf(" Row: %u", ROW(code));
         xprintf(" Col: %u", COL(code));
         xprintf("\tMap: 0x%02X", map_cs2[ROW(code)][COL(code)]);

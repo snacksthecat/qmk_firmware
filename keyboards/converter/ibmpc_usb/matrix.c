@@ -448,7 +448,7 @@ static void matrix_make(uint8_t code)
         xprintf(" Col: %u", COL(code));
         xprintf(" Map: 0x%02X", map_cs2[ROW(code)][COL(code)]);
 
-        xprintf("\n[BK] New: 0x%02X", newcode);
+        xprintf("\n[MK] New: 0x%02X", newcode);
         xprintf(" New: %u", ROW(newcode));
         xprintf(" New: %u", COL(newcode));
         xprintf(" New: 0x%02X", (matrix[ROW(newcode)] | (1<<COL(newcode))));

@@ -451,7 +451,7 @@ static void matrix_make(uint8_t code)
         xprintf("\n[BK] New: 0x%02X", newcode);
         xprintf(" New: %u", ROW(newcode));
         xprintf(" New: %u", COL(newcode));
-        xprintf(" New: 0x%02X\n\n", (matrix[ROW(newcode)] | (1<<COL(newcode))));
+        xprintf(" New: 0x%02X", (matrix[ROW(newcode)] | (1<<COL(newcode))));
     }
 }
 

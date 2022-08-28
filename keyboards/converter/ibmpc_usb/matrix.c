@@ -443,7 +443,7 @@ static void matrix_make(uint8_t code)
         matrix[ROW(newcode)] |= 1<<COL(newcode);
 
         // snacks debug
-        xprintf("\n[MK]\tCode:\t0x%02X", code);
+        xprintf("\n[MAKE]\tCode:\t0x%02X", code);
         xprintf(" Row:\t%u", ROW(code));
         xprintf(" Col:\t%u", COL(code));
         xprintf(" Map:\t0x%02X", map_cs2[ROW(code)][COL(code)]);

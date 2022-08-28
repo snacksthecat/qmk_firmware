@@ -443,15 +443,15 @@ static void matrix_make(uint8_t code)
         matrix[ROW(newcode)] |= 1<<COL(newcode);
 
         // snacks debug
-        xprintf("\n[MAKE]\tCode:\t0x%02X", code);
-        xprintf(" Row:\t%u", ROW(code));
-        xprintf(" Col:\t%u", COL(code));
-        xprintf(" Map:\t0x%02X", map_cs2[ROW(code)][COL(code)]);
+        xprintf("\n[MAKE]  Code:\t0x%02X", code);
+        xprintf(" Row: %u", ROW(code));
+        xprintf(" Col: %u", COL(code));
+        xprintf("\tMap: 0x%02X", map_cs2[ROW(code)][COL(code)]);
 
-        xprintf("\n[MAKE]\tNew:\t0x%02X", newcode);
-        xprintf(" New:\t%u", ROW(newcode));
-        xprintf(" New:\t%u", COL(newcode));
-        xprintf(" New:\t0x%02X", (matrix[ROW(newcode)] | (1<<COL(newcode))));
+        xprintf("\n[MAKE]  New:  0x%02X", newcode);
+        xprintf(" New: %u", ROW(newcode));
+        xprintf(" New: %u", COL(newcode));
+        xprintf("\tNew: 0x%02X", (matrix[ROW(newcode)] | (1<<COL(newcode))));
     }
 }
 
@@ -477,15 +477,15 @@ static void matrix_break(uint8_t code)
         matrix[ROW(newcode)] &= ~(1<<COL(newcode));
 
         // snacks debug
-        xprintf("\n[BREAK]\tCode:\t0x%02X", code);
-        xprintf(" Row:\t%u", ROW(code));
-        xprintf(" Col:\t%u", COL(code));
-        xprintf(" Map:\t0x%02X", map_cs2[ROW(code)][COL(code)]);
+        xprintf("\n[BREAK] Code:\t0x%02X", code);
+        xprintf(" Row: %u", ROW(code));
+        xprintf(" Col: %u", COL(code));
+        xprintf("\tMap: 0x%02X", map_cs2[ROW(code)][COL(code)]);
 
-        xprintf("\n[BREAK]\tNew:\t0x%02X", newcode);
-        xprintf(" New:\t%u", ROW(newcode));
-        xprintf(" New:\t%u", COL(newcode));
-        xprintf(" New:\t0x%02X\n\n", (matrix[ROW(newcode)] & (1<<COL(newcode))));
+        xprintf("\n[BREAK] New:  0x%02X", newcode);
+        xprintf(" New: %u", ROW(newcode));
+        xprintf(" New: %u", COL(newcode));
+        xprintf("\tNew: 0x%02X\n\n", (matrix[ROW(newcode)] & (1<<COL(newcode))));
     }
 }
 

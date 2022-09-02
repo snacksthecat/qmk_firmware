@@ -118,7 +118,7 @@ RETRY:
     data_lo();
     wait_us(200);
     clock_hi();     // [5]p.54 [clock low]>100us [5]p.50
-    WAIT(clock_lo, 10000, 1);   // [5]p.53, -10ms [5]p.50
+    WAIT(clock_lo, 15000, 1);   // [5]p.53, -10ms [5]p.50
 
     /* Data bit[2-9] */
     for (uint8_t i = 0; i < 8; i++) {
@@ -241,7 +241,7 @@ void ibmpc_interrupt_service_routine(void) {
 #if defined(__AVR__)
         if ((uint8_t)(t - timer_start) >= 3) {
 #else
-        if ((uint8_t)(timer_elapsed(timer_start)) >= 3) {
+        if ((uint8_t)(timer_elapsed(timer_start)) >= 5) {
 #endif
             ibmpc_isr_debug = isr_state;
             ibmpc_error = IBMPC_ERR_TIMEOUT;

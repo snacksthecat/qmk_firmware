@@ -543,7 +543,6 @@ bool matrix_has_ghost_in_row(uint8_t row)
 
 void led_set(uint8_t usb_led)
 {
-    uint8_t ibmpc_led = 0;
 //    if (usb_led &  (1<<USB_LED_SCROLL_LOCK)) {
 //        DDRF |= (1<<7);
 //        PORTF |= (1<<7);
@@ -565,6 +564,8 @@ void led_set(uint8_t usb_led)
 //        DDRF &= ~(1<<5);
 //        PORTF &= ~(1<<5);
 //    }
+
+    uint8_t ibmpc_led = 0;
     // Sending before keyboard recognition may be harmful for XT keyboard
     if (keyboard_kind == NONE) return;
 

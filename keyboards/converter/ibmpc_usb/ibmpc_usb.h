@@ -85,7 +85,7 @@ K0D, K0E,   K1F, K20, K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A, K2B, K2C
 K0F, K10,   K35, K36, K37, K38, K39, K3A, K3B, K3C, K3D, K3E, K3F, K40, K41,      K42,   K46, K47, K48, K33, \
 K11, K12,   K4A,      K4B, K4C, K4D, K4E, K4F, K50, K51, K52, K53, K54, K55, K56, K57,   K58, K59, K5A, K34, \
 K13, K14,   K5C, K5D, K5E, K5F, K60, K61, K62, K63, K64, K65, K66, K67, K68,      K69,   K6B, K6C, K6D, K6E, \
-K15, K16,   K6F,      K71,                     K73,                     K76,      K79,   K7D, K7E            \
+K15, K16,   K6F,      K71,                     K73,                     K76,      K79,   K7D,      K7E       \
 ) { \
  { XXX, XXX, XXX, XXX, XXX, XXX, XXX, XXX,  \
   XXX, XXX, XXX, XXX, K0C, K0D, K0E, K0F }, \

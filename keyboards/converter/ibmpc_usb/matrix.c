@@ -306,11 +306,12 @@ uint8_t matrix_scan(void)
                     keyboard_kind = PC_AT;
                 }
             } else if (0xAB90 == keyboard_id || // IBM 5576-002
-                       0xAB91 == keyboard_id) { // IBM 5576-003
+                       0xAB91 == keyboard_id) { // IBM 5576-003 or Televideo DEC
                 // https://github.com/tmk/tmk_keyboard/wiki/IBM-PC-AT-Keyboard-Protocol#ab90
                 // https://github.com/tmk/tmk_keyboard/wiki/IBM-PC-AT-Keyboard-Protocol#ab91
 
                 xprintf("\n5576_CS82h:");
+                keyboard_kind = PC_AT;
                 if ((0xFA == ibmpc_host_send(0xF0)) &&
                     (0xFA == ibmpc_host_send(0x82))) {
                     // switch to code set 82h
@@ -318,8 +319,18 @@ uint8_t matrix_scan(void)
                     xprintf("OK ");
                 } else {
                     xprintf("NG ");
+                    if (0xAB91 == keyboard_id) {
+                        // This must be a Televideo DEC keyboard, which piggybacks on the same keyboard_id as IBM 5576-003
+                        // This keyboard normally starts up using code set 1, but we request code set 2 here:
+                        if ((0xFA == ibmpc_host_send(0xF0)) &&
+                            (0xFA == ibmpc_host_send(0x03))) {
+                            xprintf("OK ");
+                            keyboard_kind = PC_TERMINAL;
+                        } else {
+                            xprintf("NG ");
+                        }
+                    }
                 }
-                keyboard_kind = PC_AT;
             } else if (0xBFB0 == keyboard_id) {     // IBM RT Keyboard
                 // https://github.com/tmk/tmk_keyboard/wiki/IBM-PC-AT-Keyboard-Protocol#bfb0
                 // TODO: LED indicator fix
@@ -441,17 +452,6 @@ static void matrix_make(uint8_t code)
     }
     if (!matrix_is_on(ROW(newcode), COL(newcode))) {
         matrix[ROW(newcode)] |= 1<<COL(newcode);
-
-        // snacks debug
-        // xprintf("\n[MAKE]  Code: 0x%02X  \t", code);
-        // xprintf(" Row: %u", ROW(code));
-        // xprintf("  Col: %u", COL(code));
-        // xprintf("\tMap: 0x%02X", map_cs2[ROW(code)][COL(code)]);
-
-        // xprintf("\n[MAKE]  New:  0x%02X  \t", newcode);
-        // xprintf(" New: %u", ROW(newcode));
-        // xprintf("  New: %u", COL(newcode));
-        // xprintf(" \tNew: 0x%02X", (matrix[ROW(newcode)] | (1<<COL(newcode))));
     }
 }
 
@@ -475,17 +475,6 @@ static void matrix_break(uint8_t code)
     }
     if (matrix_is_on(ROW(newcode), COL(newcode))) {
         matrix[ROW(newcode)] &= ~(1<<COL(newcode));
-
-        // snacks debug
-        // xprintf("\n[BREAK] Code: 0x%02X  \t", code);
-        // xprintf(" Row: %u", ROW(code));
-        // xprintf("  Col: %u", COL(code));
-        // xprintf("\tMap: 0x%02X", map_cs2[ROW(code)][COL(code)]);
-
-        // xprintf("\n[BREAK] New:  0x%02X  \t", newcode);
-        // xprintf(" New: %u", ROW(newcode));
-        // xprintf("  New: %u", COL(newcode));
-        // xprintf(" \tNew: 0x%02X\n\n", (matrix[ROW(newcode)] & (1<<COL(newcode))));
     }
 }
 
@@ -543,6 +532,7 @@ bool matrix_has_ghost_in_row(uint8_t row)
 
 void led_set(uint8_t usb_led)
 {
+    uint8_t ibmpc_led = 0;
 //    if (usb_led &  (1<<USB_LED_SCROLL_LOCK)) {
 //        DDRF |= (1<<7);
 //        PORTF |= (1<<7);
@@ -564,8 +554,6 @@ void led_set(uint8_t usb_led)
 //        DDRF &= ~(1<<5);
 //        PORTF &= ~(1<<5);
 //    }
-
-    uint8_t ibmpc_led = 0;
     // Sending before keyboard recognition may be harmful for XT keyboard
     if (keyboard_kind == NONE) return;
 
@@ -824,14 +812,23 @@ static int8_t process_cs1(uint8_t code)
 static uint8_t cs2_e0code(uint8_t code) {
     switch(code) {
         // E0 prefixed codes translation See [a].
-        case 0x11: return 0x0F; // right alt
-        case 0x14: return 0x17; // right control
-        case 0x1F: return 0x19; // left GUI
+        case 0x11:  if (0xAB90 == keyboard_id || 0xAB91 == keyboard_id)
+                        return 0x13; // Hiragana(5576) -> KANA
+                    else
+                        return 0x0F; // right alt
+
+        case 0x41:  if (0xAB90 == keyboard_id || 0xAB91 == keyboard_id)
+                        return 0x7C; // Keypad ,(5576) -> Keypad *
+                    else
+                        return (code & 0x7F);
+
+        case 0x14: return 0x19; // right control
+        case 0x1F: return 0x17; // left GUI
         case 0x27: return 0x1F; // right GUI
-        case 0x2F: return 0x5C; // apps
+        case 0x2F: return 0x27; // apps
         case 0x4A: return 0x60; // keypad /
         case 0x5A: return 0x62; // keypad enter
-        case 0x69: return 0x27; // end
+        case 0x69: return 0x5C; // end
         case 0x6B: return 0x53; // cursor left
         case 0x6C: return 0x2F; // home
         case 0x70: return 0x39; // insert
@@ -839,6 +836,7 @@ static uint8_t cs2_e0code(uint8_t code) {
         case 0x72: return 0x3F; // cursor down
         case 0x74: return 0x47; // cursor right
         case 0x75: return 0x4F; // cursor up
+        case 0x77: return 0x00; // Unicomp New Model M Pause/Break key fix
         case 0x7A: return 0x56; // page down
         case 0x7D: return 0x5E; // page up
         case 0x7C: return 0x7F; // Print Screen
@@ -1100,6 +1098,38 @@ static uint8_t translate_5576_cs3(uint8_t code) {
     return code;
 }
 
+// Televideo DEC Scan code translation
+static uint8_t translate_televideo_dec_cs3(uint8_t code) {
+    switch (code) {
+        case 0x08: return 0x76; // Esc
+        case 0x8D: return 0x77; // Num Lock
+        case 0x8E: return 0x67; // Numeric Keypad Slash
+        case 0x8F: return 0x7F; // Numeric Keypad Asterisk
+        case 0x90: return 0x7B; // Numeric Keypad Minus
+        case 0x6E: return 0x65; // Insert
+        case 0x65: return 0x6d; // Delete
+        case 0x67: return 0x62; // Home
+        case 0x6d: return 0x64; // End
+        case 0x64: return 0x6e; // PageUp
+        case 0x84: return 0x7c; // Numeric Keypad Plus (Legend says minus)
+        case 0x87: return 0x02; // Print Screen
+        case 0x88: return 0x7e; // Scroll Lock
+        case 0x89: return 0x0c; // Pause
+        case 0x8A: return 0x03; // VOLD
+        case 0x8B: return 0x04; // VOLU
+        case 0x8C: return 0x05; // MUTE
+        case 0x85: return 0x08; // F13
+        case 0x86: return 0x10; // F14
+        case 0x91: return 0x01; // LGUI
+        case 0x92: return 0x09; // RGUI
+        case 0x77: return 0x58; // RCTRL
+        case 0x57: return 0x5C; // Backslash
+        case 0x5C: return 0x53; // Non-US Hash
+        case 0x7c: return 0x68; // Kp Comma
+    }
+    return code;
+}
+
 static int8_t process_cs3(uint8_t code)
 {
     static enum {
@@ -1126,6 +1156,10 @@ static int8_t process_cs3(uint8_t code)
         case READY:
             if (0xAB92 == keyboard_id) {
                 code = translate_5576_cs3(code);
+            }
+            if (0xAB91 == keyboard_id) {
+                // This must be the Televideo DEC keyboard. (For 5576-003 we don't use scan code set 3)
+                code = translate_televideo_dec_cs3(code);
             }
             switch (code) {
                 case 0xF0:
@@ -1173,6 +1207,10 @@ static int8_t process_cs3(uint8_t code)
             if (0xAB92 == keyboard_id) {
                 code = translate_5576_cs3(code);
             }
+            if (0xAB91 == keyboard_id) {
+                // This must be the Televideo DEC keyboard. (For 5576-003 we don't use scan code set 3)
+                code = translate_televideo_dec_cs3(code);
+            }
             switch (code) {
                 case 0x83:  // PrintScreen
                     matrix_break(0x02);
@@ -1181,10 +1219,10 @@ static int8_t process_cs3(uint8_t code)
                     matrix_break(0x7F);
                     break;
                 case 0x85:  // Muhenkan
-                    matrix_break(0x68);
+                    matrix_break(0x0B);
                     break;
                 case 0x86:  // Henkan
-                    matrix_break(0x78);
+                    matrix_break(0x06);
                     break;
                 case 0x87:  // Hiragana
                     matrix_break(0x00);

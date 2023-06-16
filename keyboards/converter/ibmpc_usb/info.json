@@ -1,7 +1,7 @@
 {
     "keyboard_name": "converter/ibmpc_usb",
     "url": "",
-    "maintainer": "qmk",
+    "maintainer": "snacksthecat",
     "layouts": {
         "LAYOUT_xt83": {
             "layout": [

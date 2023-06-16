@@ -108,6 +108,7 @@ int16_t ibmpc_host_send(uint8_t data)
     if (!data_in()) dprintf("d:%u ", wait_data_hi(1000));
 
     IBMPC_INT_OFF();
+    cli();
 
 RETRY:
     /* terminate a transmission if we have */
@@ -118,7 +119,7 @@ RETRY:
     data_lo();
     wait_us(200);
     clock_hi();     // [5]p.54 [clock low]>100us [5]p.50
-    WAIT(clock_lo, 15000, 1);   // [5]p.53, -10ms [5]p.50
+    WAIT(clock_lo, 10000, 1);   // [5]p.53, -10ms [5]p.50
 
     /* Data bit[2-9] */
     for (uint8_t i = 0; i < 8; i++) {
@@ -152,6 +153,7 @@ RETRY:
     ibmpc_host_isr_clear();
 
     idle();
+    sei();
     IBMPC_INT_ON();
     return ibmpc_host_recv_response();
 ERROR:
@@ -166,6 +168,7 @@ ERROR:
     inhibit();
     wait_ms(2);
     idle();
+    sei();
     IBMPC_INT_ON();
     return -1;
 }
@@ -241,7 +244,7 @@ void ibmpc_interrupt_service_routine(void) {
 #if defined(__AVR__)
         if ((uint8_t)(t - timer_start) >= 3) {
 #else
-        if ((uint8_t)(timer_elapsed(timer_start)) >= 5) {
+        if ((uint8_t)(timer_elapsed(timer_start)) >= 3) {
 #endif
             ibmpc_isr_debug = isr_state;
             ibmpc_error = IBMPC_ERR_TIMEOUT;

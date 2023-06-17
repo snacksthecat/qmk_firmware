@@ -7,7 +7,7 @@
         "vid": "0xFEED",
         "pid": "0x6536",
         "device_version": "1.0.0"
-    }
+    },
     "layouts": {
         "LAYOUT_xt83": {
             "layout": [

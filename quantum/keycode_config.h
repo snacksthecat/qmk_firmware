@@ -14,15 +14,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#pragma once
-
-#ifdef __cplusplus
-#    define _Static_assert static_assert
-#endif
-
 #include "eeconfig.h"
 #include "keycode.h"
 #include "action_code.h"
+
+#ifndef KEYCODE_CONFIG_H
+#    define KEYCODE_CONFIG_H
 
 uint16_t keycode_config(uint16_t keycode);
 uint8_t  mod_config(uint8_t mod);
@@ -41,12 +38,9 @@ typedef union {
         bool nkro : 1;
         bool swap_lctl_lgui : 1;
         bool swap_rctl_rgui : 1;
-        bool oneshot_enable : 1;
-        bool swap_escape_capslock : 1;
-        bool autocorrect_enable : 1;
     };
 } keymap_config_t;
 
-_Static_assert(sizeof(keymap_config_t) == sizeof(uint16_t), "Keycode (magic) EECONFIG out of spec.");
-
 extern keymap_config_t keymap_config;
+
+#endif /* KEYCODE_CONFIG_H */

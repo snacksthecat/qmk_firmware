@@ -2,14 +2,18 @@
 #include "timer.h"
 #include "eeconfig.h"
 #include "eeprom.h"
-#include "util.h"
+
+#ifndef MIN
+#    define MIN(a, b) (((a) < (b)) ? (a) : (b))
+#endif
+#ifndef MAX
+#    define MAX(a, b) (((a) > (b)) ? (a) : (b))
+#endif
 
 #define TYPING_SPEED_MAX_VALUE 200
 uint8_t typing_speed = 0;
 
-bool velocikey_enabled(void) {
-    return eeprom_read_byte(EECONFIG_VELOCIKEY) == 1;
-}
+bool velocikey_enabled(void) { return eeprom_read_byte(EECONFIG_VELOCIKEY) == 1; }
 
 void velocikey_toggle(void) {
     if (velocikey_enabled())
@@ -35,6 +39,4 @@ void velocikey_decelerate(void) {
     }
 }
 
-uint8_t velocikey_match_speed(uint8_t minValue, uint8_t maxValue) {
-    return MAX(minValue, maxValue - (maxValue - minValue) * ((float)typing_speed / TYPING_SPEED_MAX_VALUE));
-}
+uint8_t velocikey_match_speed(uint8_t minValue, uint8_t maxValue) { return MAX(minValue, maxValue - (maxValue - minValue) * ((float)typing_speed / TYPING_SPEED_MAX_VALUE)); }
